@@ -20,29 +20,38 @@ public class linkPuller {
 
             while ((htmlLine = HTMLreader.readLine()) != null) { // prints milton/link/espn
                 //reads websites html
-                // add while instead of while
-                if (htmlLine.contains("href=\"")) { // finds links that use double qoutes
+                // add while instead of if
+                String orginalLine = htmlLine;
+                while (htmlLine.contains("href=\"")) { // finds links that use double qoutes
                     int linkStart = htmlLine.indexOf("href=\"")+6; // skips first 6 of href
                     int linkEnd = htmlLine.indexOf("\"", linkStart); // start of links
 
-                if (linkEnd > linkStart){ // end > start
-                    String link = htmlLine.substring(linkStart,linkEnd); // string link
-                if (link.contains(filter)) { // prints the link if it has the word in the filter
-                    System.out.println(link); // prints link
-                }
+                if (linkEnd > linkStart) { // end > start
+                    String link = htmlLine.substring(linkStart, linkEnd); // string link
+                    if (link.contains(filter)) { // prints the link if it has the word in the filter
+                        System.out.println(link); // prints link
+                    }
+                    htmlLine = htmlLine.substring(linkEnd + 1);
+                }else {
+                    break;
                     }
                 }
-
-                if (htmlLine.contains("href='")){ // finds links that have single qoutes
-                    int linkStart = htmlLine.indexOf("href='")+6; // skips past 6 characters of href-=  to start at the link
+                htmlLine = orginalLine;
+                while (htmlLine.contains("href='")) { // finds links that have single qoutes
+                    int linkStart = htmlLine.indexOf("href='") + 6; // skips past 6 characters of href-=  to start at the link
                     int linkEnd = htmlLine.indexOf("'", linkStart); // end of the link
 
-                    if (linkEnd > linkStart){
+                    if (linkEnd > linkStart) {
                         String link = htmlLine.substring(linkStart, linkEnd); // extracts link
                         if (link.contains(filter)) { // only prints when it has the word in the filter
                             System.out.println(link); // prints link
                         }
+                        htmlLine = htmlLine.substring(linkEnd + 1);
+                    } else {
+                        break;
                     }
+
+
                 }
 
             }
