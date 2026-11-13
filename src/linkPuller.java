@@ -1,5 +1,6 @@
 import java.net.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class linkPuller {
     public static void main(String[] args) {
@@ -8,6 +9,11 @@ public class linkPuller {
     public linkPuller(){
 // renamed all the variables
         try{
+            Scanner input = new Scanner(System.in);
+            String again = "yes";
+
+           // while (again.equals("yes")) {
+         //       try {
             System.out.println();
             URL websiteURL = new URL("https://www.espn.com/"); // insert url
             URLConnection websiteConnection = websiteURL.openConnection();
