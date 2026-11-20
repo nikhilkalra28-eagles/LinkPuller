@@ -7,7 +7,7 @@ public class linkPuller {
         linkPuller app= new linkPuller(); // creates a linkpuller object to start the program
     }
     public linkPuller() {
-
+//
 // renamed all the variables to describe their purpose
         Scanner input = new Scanner(System.in); // found this when I researched on google // allows user to type responses into the console
         String again = "yes"; // repeats the program when the user hits yes
