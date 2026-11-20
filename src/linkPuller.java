@@ -7,6 +7,7 @@ public class linkPuller {
         linkPuller app= new linkPuller(); // creates a linkpuller object to start the program
     }
     public linkPuller() {
+
 // renamed all the variables to describe their purpose
         Scanner input = new Scanner(System.in); // found this when I researched on google // allows user to type responses into the console
         String again = "yes"; // repeats the program when the user hits yes
@@ -47,7 +48,7 @@ public class linkPuller {
                     }
                     htmlLine = orginalLine;
                     while (htmlLine.contains("href='")) { // finds links that have single qoutes
-                        int linkStart = htmlLine.indexOf("href='") + 6; // skips past 6 characters of href-=  to start at the link
+                        int linkStart = htmlLine.indexOf("href='") + 6; // skips past 6 characters of href to start at the link
                         int linkEnd = htmlLine.indexOf("'", linkStart); // end of the link
 
                         if (linkEnd > linkStart) { // link end > start
@@ -67,7 +68,7 @@ public class linkPuller {
                 System.out.println(ex);
                 System.out.println("Your link does not work. Try again with another link. "); // spicy extension
             }
-            System.out.print("Would you like to run the program again? (yes or no)"); // asks user what they would like to print
+            System.out.print("Would you like to run the program again? (yes or no)"); // asks if they want to run program again
             again = input.nextLine();
         }
 
