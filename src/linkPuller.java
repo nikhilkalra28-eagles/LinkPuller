@@ -27,11 +27,11 @@ public class linkPuller {
                 System.out.println("What word would you like to filter the links by (example: espn)"); // new filter for the word and asks the user
                 String filter = input.nextLine(); // filter. stores the word the user wants to use
 
-                while ((htmlLine = HTMLreader.readLine()) != null) { // prints milton/link/espn
+                while ((htmlLine = HTMLreader.readLine()) != null) { // reads each line of html
                     //reads websites html
                     // add while instead of if
                     // double qoutes
-                    String orginalLine = htmlLine;
+                    String orginalLine = htmlLine; // saves orginal line before moving to double qoutes
                     while (htmlLine.contains("href=\"")) { // finds links that use double qoutes
                         int linkStart = htmlLine.indexOf("href=\"") + 6; // skips first 6 of href and quotes to find where url begins
                         int linkEnd = htmlLine.indexOf("\"", linkStart); // finds the closing double qoute where the link ends
